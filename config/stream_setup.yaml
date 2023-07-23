@@ -15,3 +15,11 @@ streams: # Cannot rename - must leave this as is.
     caps: video/x-raw,framerate=10/1,width=640,height=480
     bitrate: 500
 
+  # Example ROS Image topic stream
+  stream1:
+    type: topic  # topic - Image is sourced from a sensor_msgs::Image topic
+    source: /unity/camera/rgb/image_raw  # The ROS topic to subscribe to
+    mountpoint: /back      # Choose the mountpoint for the rtsp stream. This will be able to be accessed from rtsp://<server_ip>/back
+    caps: video/x-raw,framerate=10/1,width=640,height=480  # Set the caps to be applied after getting the ROS Image and before the x265 encoder.
+    bitrate: 500
+
